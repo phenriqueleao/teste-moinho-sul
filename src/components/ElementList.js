@@ -13,19 +13,16 @@ const ElementList = () => {
 			id: parseInt(id.current.value)
 		};
 
-		console.log(newElement);
-
 		const reorderElements = elements;
 
 		let i = reorderElements.findIndex((el) => el.ordem >= newElement.ordem);
-		console.log(i);
 		if (i >= 0) {
 			console.log(reorderElements);
 			reorderElements.splice(i, 0, newElement);
 			console.log(reorderElements);
 			i++;
 			for (; i < reorderElements.length; i++) {
-				if (reorderElements[i].ordem == reorderElements[i - 1].ordem) {
+				if (reorderElements[i].ordem === reorderElements[i - 1].ordem) {
 					reorderElements[i].ordem += 1;
 				} else {
 					break;
@@ -34,8 +31,10 @@ const ElementList = () => {
 		} else {
 			reorderElements.push(newElement);
 		}
-		console.log(reorderElements);
-		setElements(reorderElements);
+
+		reorderElements.push(newElement);
+
+		setElements([ ...reorderElements ]);
 	};
 
 	const renderedList = elements.map((item) => {

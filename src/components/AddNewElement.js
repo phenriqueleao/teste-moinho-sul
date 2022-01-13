@@ -6,7 +6,7 @@ const AddNewElement = ({ onSubmitValues }) => {
 
 	return (
 		<div>
-			<h3>Adicione um novo elemento:</h3>
+			<h3>Adicione um novo elemento: </h3>
 			<div>
 				<label>Ordem: </label>
 				<input ref={ordem} />
