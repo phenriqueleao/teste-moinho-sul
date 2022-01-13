@@ -9,24 +9,33 @@ const ElementList = () => {
 
 	const onSubmitValues = (ordem, id) => {
 		const newElement = {
-			ordem: ordem.current.value,
-			id: id.current.value
+			ordem: parseInt(ordem.current.value),
+			id: parseInt(id.current.value)
 		};
+
+		console.log(newElement);
 
 		const reorderElements = elements;
 
-		for (let i = 0; i < reorderElements.length; i++) {
-			if (reorderElements[i].ordem >= newElement.ordem) {
-				reorderElements[i].ordem++;
+		let i = reorderElements.findIndex((el) => el.ordem >= newElement.ordem);
+		console.log(i);
+		if (i >= 0) {
+			console.log(reorderElements);
+			reorderElements.splice(i, 0, newElement);
+			console.log(reorderElements);
+			i++;
+			for (; i < reorderElements.length; i++) {
+				if (reorderElements[i].ordem == reorderElements[i - 1].ordem) {
+					reorderElements[i].ordem += 1;
+				} else {
+					break;
+				}
 			}
+		} else {
+			reorderElements.push(newElement);
 		}
-
-		setElements([ ...reorderElements, newElement ]);
-
-		const newElements = reorderElements.concat(newElement);
-		const orderedElements = newElements.sort((a, b) => a.ordem - b.ordem);
-
-		setElements(orderedElements);
+		console.log(reorderElements);
+		setElements(reorderElements);
 	};
 
 	const renderedList = elements.map((item) => {

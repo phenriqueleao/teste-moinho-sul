@@ -7,10 +7,10 @@ exports.array = [
 		ordem: 2,
 		id: 20
 	},
-	{
-		ordem: 3,
-		id: 30
-	},
+	// {
+	// 	ordem: 3,
+	// 	id: 30
+	// },
 	{
 		ordem: 4,
 		id: 40
@@ -19,10 +19,10 @@ exports.array = [
 		ordem: 5,
 		id: 50
 	},
-	{
-		ordem: 6,
-		id: 60
-	},
+	// {
+	// 	ordem: 6,
+	// 	id: 60
+	// },
 	{
 		ordem: 7,
 		id: 70
